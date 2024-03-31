@@ -22,3 +22,7 @@ Projekt ten został stworzony jako część procesu rekrutacyjnego do Hello IT. 
 
 - **Dostosowywanie szybkości wzrostu:** Można dostosować czas potrzebny na rośnięcie kwiatka poprzez zmianę MAGICZNEGO NUMERKA w pliku `main.rs`. Im mniejsza wartość tego numerka, tym szybciej kwiatek będzie rósł, a im większa, tym wolniej.
 
+### Informacja dodatkowa
+
+Projekt wykorzystuje bibliotekę `bevy_psx`, która naśladuje wygląd grafiki generowanej przez procesor graficzny pierwszej konsoli PlayStation.
+Obecnie jestem maintenerem tej biblioteki :3
