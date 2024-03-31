@@ -10,7 +10,7 @@ Projekt ten został stworzony jako część procesu rekrutacyjnego do Hello IT. 
    Zainstaluj język Rust z oficjalnej strony internetowej [rust-lang.org](https://www.rust-lang.org/learn/get-started).
 
 2. **Uruchomienie programu:**
-   Odpal program za pomocą komendy `cargo run`. Program powinien działać na systemach Linux, Windows i MacOS, ale został przetestowany tylko na systemie Linux.
+   Odpal program za pomocą komendy `cargo run`. Program powinien działać na systemach Linux, Windows i MacOS, ale został przetestowany tylko na systemie Linux i Windows (W windowsie terminal sypie errorami ale działa).
 
 ### Funkcjonalności
 
