@@ -7,7 +7,7 @@ use std::fs;
 // Przy ustawieniu jej na 10 rośnienie pierwszego kwiatka trwa 50 sekund
 // dla szybkiej demonstracji ustawiamy na 1
 // dla realistycznego rośnięcia ustawiamy na parę tysięcy
-pub static MAGIC_MULTIPLIER: u64 = 1;
+pub static MAGIC_MULTIPLIER: u64 = 5;
 
 fn main() {
     App::new()
