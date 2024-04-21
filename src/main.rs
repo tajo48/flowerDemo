@@ -2,17 +2,20 @@ use bevy::prelude::*;
 use bevy_psx::{camera::PsxCamera, material::PsxMaterial, PsxPlugin};
 use serde_json;
 use std::fs;
-
+#[path = "camera_controller.rs"]
+mod camera_controller;
+use camera_controller::{CameraController, CameraControllerPlugin};
 // TA ZMIENNA JEST MAGICZNA DEFINIUJE ONA JAK CZESTO MA BYC WYKONYWANA AKCJA ROŚNIECIA IM WIĘKSZY NUMEREK TYM ŻADZIEJ ROSNIE
 // Przy ustawieniu jej na 10 rośnienie pierwszego kwiatka trwa 50 sekund
 // dla szybkiej demonstracji ustawiamy na 1
 // dla realistycznego rośnięcia ustawiamy na parę tysięcy
-pub static MAGIC_MULTIPLIER: u64 = 5;
+pub static MAGIC_MULTIPLIER: u64 = 3;
 
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
         .add_plugins(PsxPlugin)
+        .add_plugins(CameraControllerPlugin)
         .insert_resource(Msaa::Off)
         .add_systems(Startup, setup)
         .add_systems(Update, rotate)
@@ -48,8 +51,18 @@ fn setup(
     let v: serde_json::Value = serde_json::from_str(&contents).unwrap();
     let denage = v["plant"]["age"].as_u64().unwrap();
     println!("Age: {}", denage);
-
-    commands.spawn(PsxCamera::default());
+    /*
+    commands.spawn((
+       Camera3dBundle {
+           transform: Transform::from_xyz(-1.0, 1.0, 1.0)
+               .looking_at(Vec3::new(0.0, 0.0, -0.5), Vec3::Y),
+           ..default()
+       },
+       CameraController::default(),
+    ));
+    */
+    commands.spawn((PsxCamera::default(), CameraController::default()));
+    //commands.spawn(PsxCamera::default());
     let transform =
         Transform::from_scale(Vec3::splat(1.0)).with_translation(Vec3::new(0.0, 0.0, -0.5));
 
